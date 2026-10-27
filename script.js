@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = " https://mindscope-student-mindpulse-prediction.onrender.com";
 const HISTORY_KEY = "mindscope_prediction_history";
 const THEME_KEY = "mindscope_theme";
 const MAX_HISTORY = 50;
