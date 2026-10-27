@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d9488">
+  <title>MindScope | Student Wellness Insights</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a href="#" class="brand" aria-label="MindScope home">
+      <span class="brand-icon">M</span>
+      <span>MindScope</span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#assessment">Assessment</a>
+      <a href="#history">History</a>
+      <a href="#about-model">About the model</a>
+    </nav>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme">
+      <span id="theme-icon" aria-hidden="true">☾</span>
+      <span id="theme-label">Dark mode</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow"><span class="status-dot"></span> STUDENT WELLNESS TOOL</span>
+        <h1>Understand your habits.<br><span>Make space for yourself.</span></h1>
+        <p>Explore how your daily digital habits, study routine, sleep, activity and stress relate to your model-generated wellness score.</p>
+        <a href="#assessment" class="primary-link">Start assessment <span aria-hidden="true">→</span></a>
+        <p class="hero-note">A self-reflection tool, not a clinical assessment.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-circle circle-one"></div>
+        <div class="art-circle circle-two"></div>
+        <div class="art-center">
+          <span class="art-symbol">✳</span>
+          <span class="art-caption">Pause. Reflect. Reset.</span>
+        </div>
+        <div class="art-chip chip-one">Sleep</div>
+        <div class="art-chip chip-two">Balance</div>
+        <div class="art-chip chip-three">Mindfulness</div>
+      </div>
+    </section>
+
+    <section class="section" id="assessment">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">01 / YOUR CHECK-IN</span>
+          <h2>Daily wellness snapshot</h2>
+          <p>Enter your details and routine to generate a prediction.</p>
+        </div>
+        <span class="section-tag">12 inputs</span>
+      </div>
+
+      <div class="assessment-layout">
+        <form id="predict-form" class="panel form-panel">
+          <div class="form-section">
+            <h3>About you</h3>
+            <div class="form-grid">
+              <div class="field">
+                <label for="age">Age</label>
+                <input id="age" name="age" type="number" min="10" max="100" required placeholder="e.g. 21">
+              </div>
+              <div class="field">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                  <option value="">Select gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="country">Country</label>
+                <input id="country" name="country" list="country-options" required placeholder="e.g. India">
+                <datalist id="country-options">
+                  <option value="India">
+                  <option value="USA">
+                  <option value="Canada">
+                  <option value="Australia">
+                  <option value="UK">
+                  <option value="Germany">
+                  <option value="Mexico">
+                  <option value="Turkey">
+                  <option value="France">
+                  <option value="Other">
+                </datalist>
+              </div>
+              <div class="field">
+                <label for="academic_level">Academic level</label>
+                <select id="academic_level" name="academic_level" required>
+                  <option value="">Select level</option>
+                  <option value="High School">High School</option>
+                  <option value="Undergraduate">Undergraduate</option>
+                  <option value="Graduate">Graduate</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Digital habits</h3>
+            <div class="form-grid">
+              <div class="field">
+                <label for="most_used_platform">Most-used platform</label>
+                <select id="most_used_platform" name="most_used_platform" required>
+                  <option value="">Choose platform</option>
+                  <option>Facebook</option>
+                  <option>LinkedIn</option>
+                  <option>Instagram</option>
+                  <option>Snapchat</option>
+                  <option>Twitter</option>
+                  <option>YouTube</option>
+                  <option>TikTok</option>
+                  <option>LINE</option>
+                  <option>KakaoTalk</option>
+                  <option>VKontakte</option>
+                  <option>WhatsApp</option>
+                  <option>WeChat</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="purpose_of_use">Main purpose</label>
+                <select id="purpose_of_use" name="purpose_of_use" required>
+                  <option value="">Choose purpose</option>
+                  <option>Networking</option>
+                  <option>Education</option>
+                  <option>Entertainment</option>
+                  <option>News</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="avg_daily_usage_hours">Daily social media usage (hours)</label>
+                <input id="avg_daily_usage_hours" name="avg_daily_usage_hours" type="number" min="0" max="24" step="0.1" required placeholder="e.g. 3.5">
+              </div>
+              <div class="field">
+                <label for="daily_unlocks">Daily phone unlocks</label>
+                <input id="daily_unlocks" name="daily_unlocks" type="number" min="0" max="10000" step="1" required placeholder="e.g. 45">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Your daily routine</h3>
+            <div class="form-grid">
+              <div class="field">
+                <label for="study_hours">Study hours per day</label>
+                <input id="study_hours" name="study_hours" type="number" min="0" max="24" step="0.1" required placeholder="e.g. 5">
+              </div>
+              <div class="field">
+                <label for="physical_activity_hours">Physical activity (hours)</label>
+                <input id="physical_activity_hours" name="physical_activity_hours" type="number" min="0" max="2" step="0.1" required placeholder="0–2 hours">
+                <small>Maximum accepted by the model: 2 hours.</small>
+              </div>
+              <div class="field">
+                <label for="sleep_hours_per_night">Sleep per night (hours)</label>
+                <input id="sleep_hours_per_night" name="sleep_hours_per_night" type="number" min="0" max="24" step="0.1" required placeholder="e.g. 7.5">
+              </div>
+            </div>
+            <div class="field stress-field">
+              <span class="field-label">How would you describe your stress level?</span>
+              <div id="stress_level_group" class="stress-options" role="group" aria-label="Stress level">
+                <button type="button" class="stress-option" data-value="Low" aria-pressed="false">Low</button>
+                <button type="button" class="stress-option" data-value="Medium" aria-pressed="false">Medium</button>
+                <button type="button" class="stress-option" data-value="High" aria-pressed="false">High</button>
+                <button type="button" class="stress-option" data-value="Very High" aria-pressed="false">Very high</button>
+              </div>
+              <input id="stress_level" name="stress_level" type="hidden" required>
+            </div>
+          </div>
+
+          <p id="form-error" class="message error-message" role="alert" hidden></p>
+
+          <div class="form-actions">
+            <button id="submit-btn" class="button button-primary" type="submit">
+              <span class="button-text">Generate my prediction</span>
+              <span class="button-spinner" aria-hidden="true"></span>
+            </button>
+            <button id="reset-btn" class="button button-secondary" type="reset">Clear form</button>
+          </div>
+          <p class="privacy-note">Your entries are sent to your configured prediction API. Saved history stays in this browser unless you clear it.</p>
+        </form>
+
+        <aside class="panel result-panel" aria-live="polite">
+          <div class="result-heading">
+            <span class="eyebrow">YOUR RESULT</span>
+            <span class="result-icon" aria-hidden="true">✳</span>
+          </div>
+
+          <div id="state-idle" class="result-state">
+            <div class="result-placeholder">
+              <span class="placeholder-icon">◎</span>
+              <h3>Your snapshot starts here</h3>
+              <p>Complete the form to see your model-generated score and personalized habit suggestions.</p>
+            </div>
+          </div>
+
+          <div id="state-loading" class="result-state" hidden>
+            <div class="loading-orb"></div>
+            <h3>Generating your result</h3>
+            <p>Sending your inputs to the prediction model…</p>
+          </div>
+
+          <div id="state-result" class="result-state" hidden>
+            <p class="result-label">Predicted mental health score</p>
+            <div class="score-display">
+              <span id="score-number" class="score-number">—</span>
+            </div>
+            <span id="score-band" class="score-badge">Model output</span>
+            <p id="score-context" class="score-context">This is the score returned by your machine-learning model.</p>
+
+            <div class="result-divider"></div>
+            <div class="feedback-heading">
+              <span id="feedback-icon" class="feedback-icon" aria-hidden="true">✳</span>
+              <h3 id="feedback-title">Your habit notes</h3>
+            </div>
+            <p id="feedback-intro" class="feedback-intro">General suggestions based on the information you entered.</p>
+            <ul id="feedback-list" class="feedback-list"></ul>
+
+            <div class="result-actions">
+              <button id="download-report-btn" class="button button-primary" type="button">Download report</button>
+              <button id="new-prediction-btn" class="button button-secondary" type="button">New assessment</button>
+            </div>
+          </div>
+
+          <div id="state-error" class="result-state" hidden>
+            <span class="error-icon" aria-hidden="true">!</span>
+            <h3 id="error-label">Prediction unavailable</h3>
+            <p id="error-copy">Please check your connection and try again.</p>
+            <button id="error-retry-btn" class="button button-primary" type="button">Try again</button>
+          </div>
+
+          <p class="disclaimer">MindScope is for educational self-reflection only. It does not diagnose, treat or replace professional mental health care.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="history">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">02 / YOUR JOURNEY</span>
+          <h2>Prediction history</h2>
+          <p>Review saved results from this browser and observe changes over time.</p>
+        </div>
+        <div class="history-actions">
+          <button id="export-history-btn" class="button button-secondary button-small" type="button">Export CSV</button>
+          <button id="clear-history-btn" class="button button-quiet button-small" type="button">Clear history</button>
+        </div>
+      </div>
+
+      <div class="history-grid">
+        <div class="panel chart-panel">
+          <div class="panel-title-row">
+            <div>
+              <h3>Score trend</h3>
+              <p>Saved model outputs, ordered by date</p>
+            </div>
+            <span id="history-count" class="count-pill">0 records</span>
+          </div>
+          <div id="history-chart" class="history-chart">
+            <div class="empty-chart">
+              <span aria-hidden="true">↗</span>
+              <p>Your trend chart will appear after your first prediction.</p>
+            </div>
+          </div>
+          <p class="chart-note">The chart shows score values only. The score's direction and clinical meaning have not been configured.</p>
+        </div>
+
+        <div class="panel history-list-panel">
+          <div class="panel-title-row">
+            <div>
+              <h3>Recent snapshots</h3>
+              <p>Stored locally on this device</p>
+            </div>
+          </div>
+          <div id="history-list" class="history-list">
+            <p class="empty-list">No saved predictions yet.</p>
+          </div>
+        </div>
+      </div>
+      <p class="privacy-note">History is stored in your browser's local storage. It is not a secure medical record. Avoid saving sensitive information on a shared device.</p>
+    </section>
+
+    <section class="section" id="about-model">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">03 / TRANSPARENCY</span>
+          <h2>About the model</h2>
+          <p>Understand what this prototype can and cannot tell you.</p>
+        </div>
+      </div>
+
+      <div class="evaluation-grid">
+        <article class="panel info-card">
+          <span class="info-number">01</span>
+          <h3>Model output</h3>
+          <p>The score is returned by your trained machine-learning model through the FastAPI prediction endpoint.</p>
+        </article>
+        <article class="panel info-card">
+          <span class="info-number">02</span>
+          <h3>Evaluation metrics</h3>
+          <p>Accuracy, MAE, RMSE, R² and validation details have not been supplied to this interface. Add the actual training results before publishing model-performance claims.</p>
+        </article>
+        <article class="panel info-card">
+          <span class="info-number">03</span>
+          <h3>Limitations</h3>
+          <p>A prediction is not a diagnosis. The result may be affected by training-data quality, bias, missing context and differences between people.</p>
+        </article>
+      </div>
+
+      <div class="model-note">
+        <span aria-hidden="true">ⓘ</span>
+        <p><strong>Important:</strong> The model's score range and the meaning of higher or lower values must be documented from the training pipeline. Until then, MindScope displays the numeric output without classifying it as good or bad.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="#" class="brand footer-brand"><span class="brand-icon">M</span><span>MindScope</span></a>
+    <p>Built for awareness, reflection and responsible AI.</p>
+    <a href="#assessment">Back to assessment ↑</a>
+  </footer>
+</body>
+</html>
